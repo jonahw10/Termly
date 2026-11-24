@@ -4,6 +4,7 @@
   const EVENTS_KEY = "termly.events";
   const REMINDERS_KEY = "termly.reminders-enabled";
   const SENT_REMINDERS_KEY = "termly.sent-reminders";
+  const THEME_KEY = "termly.theme";
   const months = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -35,6 +36,10 @@
   const resultsList = document.getElementById("results-list");
   const resultsCount = document.getElementById("results-count");
   const enableRemindersButton = document.getElementById("enable-reminders");
+  const themeToggleButton = document.getElementById("theme-toggle");
+  const themeToggleLabel = document.getElementById("theme-toggle-label");
+  const themeToggleIcon = document.getElementById("theme-toggle-icon");
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
   let events = loadEvents();
   let stagedEvents = [];
@@ -77,6 +82,26 @@
       showNotice("Browser storage is unavailable. Dates and reminder settings may not be saved.", true);
       return false;
     }
+  }
+
+  function loadTheme() {
+    try {
+      return localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light";
+    } catch (error) {
+      showNotice("Your appearance preference couldn't be read. Using light mode for this visit.", true);
+      return "light";
+    }
+  }
+
+  function applyTheme(theme) {
+    const isDark = theme === "dark";
+    const nextTheme = isDark ? "light" : "dark";
+    document.body.dataset.theme = theme;
+    themeToggleButton.setAttribute("aria-pressed", String(isDark));
+    themeToggleButton.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+    themeToggleLabel.textContent = nextTheme === "dark" ? "Dark mode" : "Light mode";
+    themeToggleIcon.textContent = nextTheme === "dark" ? "☾" : "☀";
+    themeColorMeta.setAttribute("content", isDark ? "#0e1117" : "#f6f7f3");
   }
 
   function save(key, value) {
@@ -524,6 +549,18 @@
       render();
       checkReminders();
       showNotice("Reminders are on. Keep Termly open to receive browser notifications.");
+    }
+  });
+
+  let currentTheme = loadTheme();
+  applyTheme(currentTheme);
+  themeToggleButton.addEventListener("click", function () {
+    currentTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(currentTheme);
+    try {
+      localStorage.setItem(THEME_KEY, currentTheme);
+    } catch (error) {
+      showNotice("Theme changed, but your preference couldn't be saved for next time.", true);
     }
   });
 
