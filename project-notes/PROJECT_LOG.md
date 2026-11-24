@@ -29,6 +29,7 @@ Keep this up to date as you go — a few lines per work session is enough. It's 
 - **What worked:** A first-pass review identified Pages as not configured and the project documents as incomplete.
 - **What broke, and how we fixed it:** The repository did not contain GitHub Pages settings or `.github/copilot-instructions.md`; this session enabled deployment through GitHub when available and completed the written sections.
 - **Committed?** yes — project documentation and unused template cleanup.
+- **Demo data:** Added fictional course deadlines and exams in `data.js`, clearly labeled on the first-view interface and saved locally on the first visit.
 
 ---
 

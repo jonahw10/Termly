@@ -62,7 +62,20 @@
   function loadEvents() {
     try {
       const saved = localStorage.getItem(EVENTS_KEY);
-      if (!saved) return [];
+      if (!saved) {
+        const demoEvents = window.TERMLY_DEMO_EVENTS;
+        if (!Array.isArray(demoEvents)) return [];
+        const initialEvents = demoEvents.map(function (event) {
+          return {
+            id: event.id,
+            title: event.title,
+            date: event.date,
+            category: event.category
+          };
+        });
+        localStorage.setItem(EVENTS_KEY, JSON.stringify(initialEvents));
+        return initialEvents;
+      }
       const parsed = JSON.parse(saved);
       if (!Array.isArray(parsed)) throw new Error("Saved calendar data is not a list.");
       return parsed.filter(function (event) {
