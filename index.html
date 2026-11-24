@@ -3,92 +3,113 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YourStartup</title>
-  <meta name="description" content="A student startup prototype for BSAD 281.">
+  <meta name="theme-color" content="#f6f7f3">
+  <meta name="description" content="Keep every class, deadline, and exam in view with Termly.">
+  <title>Termly — Your semester, in sync</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- =========================================================
-       HEADER: logo text + navigation.
-       Each link points to a "view" further down the page (#home, #explore, #about).
-       ========================================================= -->
   <header class="site-header">
-    <a class="brand" href="#home" id="brand-name">YourStartup</a>
-    <nav aria-label="Main">
-      <a href="#home">Home</a>
-      <a href="#explore">Explore</a>
-      <a href="#about">About</a>
-    </nav>
+    <a class="brand" href="#" aria-label="Termly home">
+      <span class="brand-mark" aria-hidden="true">t</span>
+      <span>termly</span>
+    </a>
+    <div class="header-note"><span class="status-dot"></span> Your semester, in sync</div>
   </header>
 
   <main>
-
-    <!-- =======================================================
-         VIEW 1: HOME — what you do, for whom, and why it matters.
-         ======================================================= -->
-    <section id="home" data-view>
-      <div class="hero">
-        <p class="eyebrow">Prototype</p>
-        <h1 id="tagline">One sentence that says what your startup does.</h1>
-        <p class="lead" id="pitch">
-          Who is your customer, what problem do they have, and why is your
-          solution better than what they use today?
-        </p>
-        <a class="button" href="#explore">See it in action</a>
+    <section class="page-intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">YOUR STUDENT DASHBOARD</p>
+        <h1 id="page-title">Make room for <span>what matters.</span></h1>
+        <p class="intro-copy">All your important class dates, in one calm little place.</p>
       </div>
-
-      <div class="steps">
-        <div class="card">
-          <h2>1. Step one</h2>
-          <p>Describe the first thing a customer does.</p>
-        </div>
-        <div class="card">
-          <h2>2. Step two</h2>
-          <p>Describe what happens next.</p>
-        </div>
-        <div class="card">
-          <h2>3. Step three</h2>
-          <p>Describe the result the customer gets.</p>
-        </div>
-      </div>
+      <button class="button button-dark" id="enable-reminders" type="button">
+        <span aria-hidden="true">♧</span> Turn on reminders
+      </button>
     </section>
 
-    <!-- =======================================================
-         VIEW 2: EXPLORE — a list built from the fake data in data.js.
-         ======================================================= -->
-    <section id="explore" data-view hidden>
-      <h1>Explore</h1>
-      <p class="muted">These examples are fake. They come from <code>data.js</code>.</p>
+    <p class="notice" id="app-notice" role="status" aria-live="polite" hidden></p>
 
-      <label class="search">
-        <span>Search</span>
-        <input type="search" id="search-box" placeholder="Type to filter…">
-      </label>
+    <div class="dashboard">
+      <section class="calendar-panel panel" aria-labelledby="month-title">
+        <div class="calendar-toolbar">
+          <div>
+            <p class="eyebrow">YOUR CALENDAR</p>
+            <h2 id="month-title"></h2>
+          </div>
+          <div class="calendar-actions">
+            <button class="icon-button" id="previous-month" type="button" aria-label="Previous month">‹</button>
+            <button class="today-button" id="today-button" type="button">Today</button>
+            <button class="icon-button" id="next-month" type="button" aria-label="Next month">›</button>
+          </div>
+        </div>
+        <div class="calendar-grid" id="calendar-grid" role="grid" aria-labelledby="month-title"></div>
+        <div class="calendar-legend">
+          <span><i class="legend-dot due-dot"></i> Deadline</span>
+          <span><i class="legend-dot exam-dot"></i> Exam</span>
+          <span><i class="legend-dot class-dot"></i> Class</span>
+        </div>
+        <section class="selected-day" aria-live="polite">
+          <div class="selected-day-heading">
+            <div>
+              <p class="eyebrow">DAY AT A GLANCE</p>
+              <h3 id="selected-date-title">Select a day</h3>
+            </div>
+          </div>
+          <div id="selected-day-events" class="selected-events"></div>
+        </section>
+      </section>
 
-      <p class="muted" id="saved-count"></p>
-      <div class="grid" id="listing-grid"></div>
-      <p class="empty" id="empty-message" hidden>Nothing matches your search.</p>
-    </section>
+      <aside class="sidebar">
+        <section class="upload-panel panel" aria-labelledby="upload-title">
+          <div class="panel-heading">
+            <div class="upload-icon" aria-hidden="true">↥</div>
+            <div>
+              <p class="eyebrow">LESS SYLLABUS. MORE FOCUS.</p>
+              <h2 id="upload-title">Add your course dates</h2>
+            </div>
+          </div>
+          <p class="panel-copy">Drop in your syllabus and we’ll find the dates worth remembering.</p>
+          <label class="file-drop" id="file-drop" for="syllabus-file">
+            <span class="file-icon" aria-hidden="true">↑</span>
+            <span class="drop-title">Choose a syllabus file</span>
+            <span class="drop-subtitle">.txt, .md, or .csv · stays on your device</span>
+            <input id="syllabus-file" type="file" accept=".txt,.md,.csv,text/plain,text/markdown,text/csv">
+          </label>
+          <label class="paste-label" for="syllabus-text">Or paste syllabus text</label>
+          <textarea id="syllabus-text" rows="4" placeholder="Paste course dates here…"></textarea>
+          <button class="button button-primary import-button" id="scan-syllabus" type="button">Find important dates <span aria-hidden="true">→</span></button>
+          <p class="privacy-note"><span aria-hidden="true">🔒</span> Your syllabus is read in your browser and never uploaded.</p>
+          <div class="import-results" id="import-results" hidden>
+            <div class="results-heading">
+              <h3>Found in your syllabus</h3>
+              <span id="results-count"></span>
+            </div>
+            <div id="results-list" class="results-list"></div>
+            <button class="button button-dark import-button" id="add-selected-dates" type="button">Add selected dates</button>
+          </div>
+        </section>
 
-    <!-- =======================================================
-         VIEW 3: ABOUT — your team and your story.
-         ======================================================= -->
-    <section id="about" data-view hidden>
-      <h1>About us</h1>
-      <p>Tell the story of why your team started this company.</p>
-      <p>Use first names only, or no names at all — this site is public.</p>
-    </section>
-
+        <section class="upcoming-panel panel" aria-labelledby="upcoming-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">STAY ONE STEP AHEAD</p>
+              <h2 id="upcoming-title">Coming up</h2>
+            </div>
+            <span class="count-pill" id="upcoming-count">0</span>
+          </div>
+          <div id="upcoming-list" class="upcoming-list"></div>
+        </section>
+      </aside>
+    </div>
   </main>
 
-  <!-- Keep this footer. Your site must say it is a student project. -->
   <footer class="site-footer">
-    <p>Student prototype for BSAD 281 at St. Francis Xavier University. Not a real company — all data is fictional.</p>
+    <span class="footer-brand">termly</span>
+    <span>Student prototype for BSAD 281 at St. Francis Xavier University. Not a real company — your syllabus stays on this device.</span>
   </footer>
 
-  <!-- Scripts load in this order: data first, then the code that uses it. -->
-  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
