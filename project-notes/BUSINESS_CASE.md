@@ -4,51 +4,89 @@ Your prototype shows *what* the product looks like. This document explains *why*
 
 ## 1. The idea
 
-- **Customer:** Termly is for undergraduate students who manage several courses and need to keep track of assignments, exams, classes, and other deadlines. It is especially useful for students who currently use disconnected tools such as learning platforms, paper syllabi, calendars, reminder apps, and spreadsheets.
-- **Problem:** Course information is fragmented across syllabi and multiple university systems. Students can miss deadlines or spend time manually copying dates into a calendar. Their current workaround is a mix of LMS pages, screenshots, sticky notes, and personal calendar applications, none of which automatically organize the information for them.
-- **Solution:** Termly lets a student paste or upload a syllabus and review the dates it identifies before adding selected items to one calendar. The prototype also groups deadlines by day and month, shows upcoming work, supports browser reminders, saves information locally, and offers light and dark modes. It differs from a general calendar because its workflow starts from the course syllabus rather than from an empty schedule.
-- **Revenue:** A real version could offer a free basic plan and sell a premium subscription with features such as account syncing across devices, unlimited syllabus imports, export to Google or Apple Calendar, recurring reminders, and course recommendations. The company could also offer a low-cost institutional plan to student services or departments. It would avoid selling individual student data and should make the premium benefits and privacy terms clear.
+- **Customer:** Who exactly is it for? University and college students who have multiple courses, assignments, quizzes and exams to keep track of.
+- **Problem:** What problem do they have today, and how do they solve it now?Students often have important dates spread across different course syllabi, online learning platforms and emails. They have to manually enter deadlines into their calendars, which takes time and can lead to missed assignments or exams. Currently, they use Google Calendar, Apple Calendar or write dates down themselves.
+- **Solution:** What does your product do differently or better?Our app allows students to upload their course syllabi. AI scans the documents, finds all important dates and automatically adds them to one organized calendar. Students can also receive reminders before upcoming deadlines.
+- **Revenue:** How does the company make money?The company makes money through monthly or yearly premium subscriptions. Students can use basic features for free, while premium users pay for unlimited courses, advanced reminders and extra planning tools. We could also partner with universities.
 
 ## 2. Where IT creates value
 
-Termly creates value in the information-management and service stages of the value chain. It reduces the time students spend searching, reading, and copying course dates, lowering a repetitive coordination cost. As more syllabi and course schedules are processed, a real system could develop stronger structured data, improve date extraction, and build a more useful course calendar.
-
-The product could use **differentiation** by focusing on syllabus-first planning for students instead of competing directly as another general-purpose calendar. It could scale with cloud-based document processing, a database, and a notification service because each additional user could use the same systems and shared course templates without a comparable increase in manual service. GitHub Pages and browser storage make the prototype inexpensive, while a real account-based service would provide an accessible direct **distribution channel** through a public website.
-
-Data and personalization could increase **switching costs** over time: uploaded syllabi, course schedules, preferred reminder times, and a student's completed events may become inconvenient to recreate elsewhere. However, Termly should support calendar export and data deletion so that lock-in does not come from denying customers control of their information.
-
+Which parts of the value chain does your product change, and how? Which course concepts apply (e.g. scale, distribution channels, differentiation, data, switching costs)?
+Our product improves how students organize and manage their schoolwork.
+Efficiency: Saves students time by automatically finding important dates instead of entering them manually.
+Scale: The app can serve thousands of students without needing a large staff.
+Differentiation: Unlike regular calendars, our app reads syllabi and automatically creates schedules.
+Switching costs: Once students have all their courses, deadlines and schedules organized in our app, they may not want to switch to another platform
 ## 3. Network effects
 
-Termly is initially more of a one-sided productivity tool than a strong network platform: each student receives value alone. It may develop **indirect network effects** if it can verify and share syllabus data across students, instructors, and institutions.
+Does your product get more valuable as more people use it?
 
-- The one-sided version has students on one side and improves through better data and recommendations rather than direct interaction.
-- A future two-sided version would connect students and institutions: students contribute or verify courses and receive accurate shared schedules, while institutions and instructors provide the authoritative syllabus source.
-- Shared course templates become more valuable as more users contribute and confirm dates. The system could compare a large number of syllabi by course, section, term, and professor to identify common patterns and flag missing or conflicting information.
-- The prototype solves the empty-network problem by being useful immediately: it parses an individual's own syllabus without requiring any other users. At launch, Termly should focus on this standalone workflow, seed a small set of popular course schedules, and add verification features only after enough users exist.
-- The syllabus-import and saved-calendar areas in the prototype demonstrate the initial standalone experience, while future shared-course features would extend this workflow.
+- Is it a **one-sided** or **two-sided** market? Who are the sides?
+- Where does the extra value come from as the network grows?
+- How would you solve the "empty network" problem at launch?
+- Point to the part of your prototype that shows this.
+Does the product become more valuable as more people use it?
 
+Yes. As more students use the app, we can collect more course information and build a larger database of syllabi and course schedules.
+
+One-sided or two-sided market?
+
+Initially, it is a one-sided market because students are the main users. In the future, it could become two-sided by connecting students and universities.
+
+Where does the extra value come from?
+
+More users can mean more course information, better course recognition and more opportunities to improve the app.
+
+How would you solve the empty network problem at launch?
+
+We would start by targeting one university and offering free access to students. This would help us build a user base before expanding to other schools.
+
+What part of the prototype shows this?
+
+The syllabus upload feature and shared course database demonstrate how students can contribute course information that makes the app more useful.
 ## 4. Can it be copied? (the moat question)
 
-The HTML, CSS, JavaScript, and calendar interface are not a durable advantage because anyone in this course could reconstruct a similar prototype with AI quickly. The moat would need to come from capabilities around the interface.
+Anyone in this class could rebuild your website in a weekend with the same AI tool. So the code is **not** your competitive advantage.
 
-The most valuable advantage would be a large, accurate, consent-based archive of normalized course dates and syllabus information (**data**). The code alone would not be rare or hard to imitate, but reliable course data plus integrations, a strong brand, verified instructor submissions, and high trust could meet VRIN-like criteria. Students would also find it difficult to leave if they accumulated many courses and reminder preferences, creating **switching costs**, although export options remain important.
+- What about your business is **valuable, rare, hard to imitate and well-organized** (VRIN)?
+- What would a competitor with a bigger budget need to copy you, and how long would it take?
+- Which of your advantages get *stronger* over time (data, network, brand, switching costs)?
 
-A competitor with a larger budget could copy the basic interface in a few weeks and might integrate a general AI service more quickly. It would take much longer to earn institutional relationships, build a broad corpus of verified schedules, establish student trust, and improve extraction across different syllabus formats. Network effects, data quality, brand, integrations, and accumulated customer preferences could strengthen over time, but the first-mover advantage should not be assumed.
+Our biggest advantage would be our database of course syllabi, academic deadlines and course information. Having a large collection of organized course information would make our app more useful and difficult to compete with.
+- Valuable: Saves students time and helps prevent missed deadlines.
+- Rare: A large, organized database of course syllabi across universities.
+- Hard to imitate: Competitors would need to collect and organize thousands of course syllabi.
+- Organized: Our app is designed to turn this information into an easy-to-use calendar.
+What would a bigger competitor need to copy?
+
+They would need to build the same technology, collect course syllabi from different universities, develop partnerships and attract students. This could take months or years to do properly.
 
 ## 5. Cloud and operations
 
-A real Termly service would need authentication, a database, file processing, hosted parsing, notification delivery, monitoring, backup, and calendar integrations.
+What would it take to run this for real? Which parts would you buy as cloud services (SaaS, PaaS, IaaS), and what are the risks of relying on them?
 
-- **SaaS:** Use a hosted identity provider for sign-in, an email provider for account and notification messages, and a calendar integration provider or APIs for Google and Apple calendars.
-- **PaaS:** Host the API and scheduled reminder workers on a managed application platform, with object storage for optionally uploaded syllabi and a managed database for accounts and course records.
-- **IaaS:** Dedicated compute would likely be unnecessary at launch. If needed for secure document processing or high-volume parsing, the company could use virtual machines or containers with autoscaling.
-
-Managed services reduce operational work and can scale as demand grows, but create vendor lock-in, recurring cost, API limits, and availability or security risks. The company could reduce these risks with standard formats, regular backups, infrastructure-as-code, service-level monitoring, and provider exit plans. Sensitive document processing should occur only with user consent and appropriate retention limits.
+To run the business, we would need an online platform, cloud storage, AI technology and a database to store student accounts and course information.
+SaaS: We could use services like Stripe for payments and email services for notifications.
+PaaS: We could use cloud platforms to run the app and manage its database.
+IaaS: We could rent cloud servers and storage instead of buying our own equipment.
 
 ## 6. Risks and ethics
 
-The main risks are incorrect date extraction, privacy loss, notification fatigue, and unequal or misleading advice. A parser could place an assignment on the wrong date or misread a phrase such as “tentative.” To reduce this, Termly should show the source text, require users to review detected dates, and label uncertain imports as needing confirmation.
+What could go wrong — for your customers, their data, or society? What would you do about it?
+Incorrect dates: AI could misunderstand a syllabus and enter the wrong exam or assignment date. We would let students review and confirm dates before adding them.
 
-A real system would process course and possibly institution information. It should use encryption, least-privilege access, short data retention, clear consent, account controls, audit logs, and secure deletion. It should not sell student data or use it for advertising without explicit permission. Abuse risks include malicious uploads, account scraping, and denial-of-service attempts. These could be addressed with file limits, malware scanning, rate limiting, authentication, and moderation.
 
-Societal risks include students becoming overly dependent on a service or institutions expecting students to use a third-party tool. Termly can use accessible interface patterns, make calendar export available, provide a free core feature, and communicate that the service is a scheduling aid rather than an authoritative academic system.
+
+Privacy: Student accounts and uploaded syllabi contain information that needs to be protected. We would use secure storage and encryption.
+
+
+
+Data security: Hackers could access student information. We would use strong security measures and limit access to personal data.
+
+
+
+AI mistakes: The AI might miss important information or misunderstand instructions. Students would always be able to edit their calendars manually.
+
+
+
+Dependence on technology: If the app goes down, students could lose access to their schedules. We would provide calendar exports and regular backups.
